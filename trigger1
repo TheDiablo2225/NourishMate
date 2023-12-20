@@ -1,0 +1,55 @@
+CREATE OR REPLACE FUNCTION check_and_update_trigger()
+RETURNS TRIGGER AS $$
+DECLARE
+    current_hour INT;
+BEGIN
+    -- Get the current hour of the day
+    SELECT EXTRACT(HOUR FROM NOW()) INTO current_hour;
+
+    -- Check if the current time is 9 pm (21:00)
+    IF current_hour = 21 THEN
+        -- Declare variables to store the values of the NEW row in the water table
+        DECLARE
+            v_target INT;
+            v_count INT;
+            v_stat INT;
+            v_message VARCHAR(100);
+        BEGIN
+            -- Get the values from the NEW row
+            SELECT NEW.target, NEW.count, NEW.stat
+            INTO v_target, v_count, v_stat;
+
+            -- Check if the count is equal to the target
+            IF v_count = v_target THEN
+                -- Update the stat to 1 and set the success message
+                v_stat := 1;
+                v_message := 'Successfully reached your target today';
+            ELSE
+                -- Set the unsuccessful message
+                v_message := 'You did not reach your target today, try again tomorrow';
+            END IF;
+
+            -- Display the message
+            RAISE NOTICE 'Status: %', v_message;
+
+            -- Update the NEW row with the new stat value
+            NEW.stat := v_stat;
+
+            -- Return the NEW row with the updated values
+            RETURN NEW;
+        END;
+    ELSE
+        -- Display a message if it's not 9 pm
+        RAISE NOTICE 'Go ahead, reach your target';
+        -- Return the original NEW row without modification
+        RETURN NEW;
+    END IF;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Create the trigger
+CREATE TRIGGER count_update_trigger
+AFTER UPDATE ON water
+FOR EACH ROW
+EXECUTE FUNCTION check_and_update_trigger();
+
