@@ -1,0 +1,28 @@
+create table  supplements(
+	pid serial primary key,
+	pname varchar(100),
+	price int
+);
+
+insert into supplements(pname,price) values('Pure Nutrition Organic Whole Food Vitamin',120);
+insert into supplements(pname,price) values('Khadi Natural Henna Thyme Hair Tonic Paraben',220);
+insert into supplements(pname,price) values('OLLY Hello Happy Gummy Worms',290);
+insert into supplements(pname,price) values('Olly Daily Enery Vitamin B12',650);
+insert into supplements(pname,price) values('Herbal max Keto Nutrition 800 mg Capsules',420);
+insert into supplements(pname,price) values('shimbhala-honey',280);
+insert into supplements(pname,price) values('Himalayan Organics Plant Based Calcium Whole Food',170);
+insert into supplements(pname,price) values('Menopause Complete Herbal Care',200);
+insert into supplements(pname,price) values('Prorganiq Vision Optimum',340);
+insert into supplements(pname,price) values('Flax Oil',500);
+
+select * from supplements;
+
+create table cart(
+	customerid integer,
+	productid integer,
+	quantity integer,
+	price integer,
+	primary key(customerid,productid),
+	foreign key(customerid) references userlog(userid),
+	foreign key(productid) references supplements(pid)
+);
