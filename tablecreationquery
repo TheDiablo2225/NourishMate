@@ -1,0 +1,32 @@
+create table customerfoodentry(
+userid integer primary key,
+calories float default 0,
+carbs float default 0,
+protein float default 0,
+fat float default 0,
+fibre float default 0,
+sdate time default now());
+
+select * from customerfoodentry;
+select * from nutri;
+
+alter table customerfoodentry
+rename column protein to protien;
+
+alter table customerfoodentry
+add constraint foreign key(userid)
+references userlog(userid);
+
+insert into customerfoodentry(userid)
+values(1234);
+
+create table userlog(
+	userid integer primary key,
+	username varchar[50],
+	email varchar[50],
+	pwd varchar[50],
+	age integer,
+	gender varchar[10]
+);
+
+select * from userlog;

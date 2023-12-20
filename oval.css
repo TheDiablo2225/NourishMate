@@ -1,0 +1,19 @@
+.oval{
+    width : 800px;
+    height : 270px;
+    border-radius: 90px;
+    color :rgb(231, 153, 17);
+    border : 2px solid rgb(231, 153, 17);
+    margin : 80px;
+    padding : 20px;
+    
+ 
+}
+
+.para{
+    font-size : 20px;
+    font-family : 'Comic Sans MS';
+    padding : 30px;
+    
+
+}

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="60x60" href="ic.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supplements</title>
+  <style>
+     body {
+      background-image:url('https://wallpapers.com/images/hd/hd-background-41vaf6r65y3aixdm.jpg');
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    header {
+      padding: 15px;
+      text-align: center;
+      font-size: 50px;
+      color:rgb(217, 145, 68);
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+    .animate-charcter
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    rgb(207, 190, 60) 0%,
+    #f0a10f 29%,
+    #ebe8e0 67%,
+    rgb(250, 139, 4)
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 5s linear infinite;
+  display: inline-block;
+      font-size : 130px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+    .product {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin: 10px;
+      width: 200px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .product img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .product:hover img {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .product h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color:  #4CAF50;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .product:hover h2 {
+      color: #ff6f61;
+    }
+
+    .product p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .product input {
+      width: 50px;
+      padding: 5px;
+      margin-top: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .product button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .product button:hover {
+      background-color: #45a049;
+    }
+
+    #cart {
+      margin-top: 20px;
+      transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+      transform: translateY(0); /* Initial position */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    #cart.cart-scroll {
+      transform: translateY(100%); /* Move down 100% */
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0.1); /* Remove shadow when scrolled down */
+    }
+
+    #cart h2 {
+      font-size: 24px;
+      color: #4CAF50;
+      font-style: italic;
+      margin-bottom: 10px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    #cart:hover h2 {
+      color: #ff6f61;
+    }
+
+    #cart-items {
+      list-style: none;
+      padding: 0;
+    }
+
+    #cart-items li {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    #cart-total {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 class="animate-charcter" style="font-family:League Spartan; padding:16px;">NOURISHMATE</h1>
+  </header>
+
+  <section id="products">
+    <!-- Product 1 -->
+    <div class="product">
+      <img src="pure.jpeg" alt="Natural Supplement 1">
+      <h2>Pure Nutrition Organic Whole Food Vitamin</h2>
+      <p>Reduce the risk of nutrient deficiencies, and boost energy levels, Bone mineralization</p>
+      <p>Category: Capsules</p>
+      <p>Price: Rs.120</p>
+      <input type="number" class="quantity" value="0" min="0" onchange="updateCart('Pure Nutrition Organic Whole Food Vitamin', this.value)">
+    </div>
+ <div class="product">
+    <img src="thyme.jpeg" alt="Natural Supplement 2">
+      <h2>Khadi Natural Henna Thyme Hair Tonic Paraben </h2>
+      <p>Perfect for blow-drying and protects hair from all types of thermal styling Ideal for all hair types</p>
+      <p>Category: Tonic</p>
+      <p>Price: Rs.220</p>
+      <input type="number" class="quantity" value="0" min="0" onchange="updateCart('Khadi Natural Henna Thyme Hair Tonic Paraben', this.value)">
+    </div>
+     <div class="product">
+    <img src="gut.jpeg" alt="Natural Supplement 3">
+      <h2>OLLY Hello Happy Gummy Worms</h2>
+      <p>Mood Balance ,Support Supplement, Vitamin D</p>
+      <p>Category: Gummies</p>
+      <p>Price: Rs.290</p>
+      <input type="number" class="quantity" value="0" min="0" onchange="updateCart('OLLY Hello Happy Gummy Worms', this.value)">
+    </div>
+     <div class="product">
+    <img src="olly.jpeg" alt="Natural Supplement 4">
+      <h2>Olly Daily Enery Vitamin B12</h2>
+      <p>This vitamin helps in active cellular enery </p>
+      <p>Category: Gummies</p>
+      <p>Price: Rs.650</p>
+      <input type="number" class="quantity" value="0" min="0" onchange="updateCart('Olly Daily Enery Vitamin B12', this.value)">
+    </div>
+     <div class="product">
+    <img src="keto.jpeg" alt="Natural Supplement 5">
+      <h2>Herbal max Keto Nutrition 800 mg Capsules</h2>
+      <p>This ketogenic blend product helps in reducing body weight significantly</p>
+      <p>Category: Capsules</p>
+      <p>Price: Rs.420</p>
+      <input type="number" class="quantity" value="0" min="0" onchange="updateCart('Herbal max Keto Nutrition 800 mg Capsules', this.value)">
+    </div>
+    <div class="product">
+      <img src="shim.jpeg" alt="Natural Supplement 6">
+      <h2>shimbhala-honey</h2>
+      <p>Contains fructo-oligosaccharides and many amino acids, vitamins, minerals and enzymes</p>
+      <p>Category: Supersaturated liquid</p>
+      <p>Price: Rs.280</p>
+      <input type="number" class="quantity" value="0" min="0" onchange="updateCart('shimbhala-honey', this.value)">
+    </div>
+    <div class="product">
+      <img src="calcium.jpeg" alt="Natural Supplement 7">
+      <h2>Himalayan Organics Plant Based Calcium Whole Food</h2>
+      <p>Easy-to-swallow, ultra-mild and easy-to-absorb calcium tablets</p>
+      <p>Category: Capsules</p>
+      <p>Price: Rs.170</p>
+      <input type="number" class="quantity" value="0" min="0" onchange="updateCart('Himalayan Organics Plant Based Calcium Whole Food', this.value)">
+    </div>
+    <div class="product">
+      <img src="meno.jpeg" alt="Natural Supplement 8">
+      <h2>Menopause Complete Herbal Care</h2>
+      <p>Herbal formula with Dong Quai, Chamomile, Black Cohosh and Milk Thistle </p>
+      <p>Category: Capsules</p>
+      <p>Price:Rs.200</p>
+      <input type="number" class="quantity" value="0" min="0" onchange="updateCart('Menopause Complete Herbal Care', this.value)">
+    </div>
+    <div class="product">
+      <img src="opti.jpeg" alt="Natural Supplement 9">
+      <h2>Prorganiq Vision Optimum</h2>
+      <p>Best Eye Health Vitamins Supplement with Vitamin A, Lutein & Bilberry</p>
+      <p>Category: Capsules</p>
+      <p>Price:Rs.340</p>
+      <input type="number" class="quantity" value="0" min="0" onchange="updateCart('Prorganiq Vision Optimum', this.value)">
+    </div>
+    <div class="product">
+      <img src="flaxoil.jpeg" alt="Natural Supplement 10">
+      <h2>Flax Oil, 1,000mg, 250 Softgels</h2>
+      <p>With Essential Omega-3s, Made with Organic Flax Oil</p>
+      <p>Category: Nutritional Oils</p>
+      <p>Price: Rs.500</p>
+      <input type="number" class="quantity" value="0" min="0" onchange="updateCart('Flax Oil', this.value)">
+    </div>
+  </section>
+
+  <section id="cart">
+    <h2>Shopping Cart</h2>
+    <ul id="cart-items">
+      <!-- Cart items will be dynamically added here -->
+    </ul>
+    <p>Total: Rs.<span id="cart-total">0.00</span></p>
+    <button onclick="viewCart()">Buy now</button>
+  </section>
+
+  <script>
+    let cart = {};
+    let prices = {
+      'Pure Nutrition Organic Whole Food Vitamin': 120,
+      'Khadi Natural Henna Thyme Hair Tonic Paraben': 220,
+       'OLLY Hello Happy Gummy Worms': 290,
+       'Olly Daily Enery Vitamin B12': 650,
+       'Herbal max Keto Nutrition 800 mg Capsules': 420,
+       'shimbhala-honey': 280,
+       'Himalayan Organics Plant Based Calcium Whole Food': 170,
+       'Menopause Complete Herbal Care': 200,
+       'Prorganiq Vision Optimum': 340,
+      'Flax Oil': 500,
+    };
+
+    function updateCart(product, quantity) {
+      cart[product] = quantity;
+      updateCartDisplay();
+      scrollCartDown();
+    }
+    function scrollCartDown() {
+      const cartSection = document.getElementById('cart');
+      cartSection.classList.add('cart-scroll');
+      setTimeout(() => {
+        cartSection.classList.remove('cart-scroll');
+      }, 500); // Adjust the duration to match the CSS transition duration
+    }
+
+    function updateCartDisplay() {
+  const cartItemsElement = document.getElementById('cart-items');
+  const cartTotalElement = document.getElementById('cart-total');
+  let total = 0;
+
+  // Clear existing items
+  cartItemsElement.innerHTML = '';
+
+  // Add new items
+  for (const product in cart) {
+    const quantity = cart[product];
+    const price = prices[product];
+    const subtotal = quantity * price;
+
+    if (quantity > 0) {
+      total += subtotal;
+
+      const listItem = document.createElement('li');
+      listItem.textContent = `${product} x${quantity} - Rs.${subtotal.toFixed(2)}`;
+      cartItemsElement.appendChild(listItem);
+    }
+  }
+
+  // Update total
+  cartTotalElement.textContent = `Rs.${total.toFixed(2)}`;
+}
+    function viewCart() {
+      // In a real scenario, you might want to redirect to a new page for the cart view
+      alert('Redirecting to Cart Page...');
+    }
+  </script>
+
+</body>
+</html>

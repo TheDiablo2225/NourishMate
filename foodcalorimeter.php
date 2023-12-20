@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Food calorimeter</title>
+        <style>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Login Form</title>
+                <style>
+                body {
+                    
+                    margin: 0;
+                    padding: 0;
+                    font-family: Arial, sans-serif;
+                    background-color: whitesmoke;
+                    color: #fff;
+                    
+                }
+    
+                .container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                }
+                
+                .food-form {
+                    background-color:peachpuff;
+                    color: #fff;
+                    padding: 20px;
+                    border-radius: 5px;
+                    width: 300px;
+                }
+    
+                .login-form h2 {
+                    text-align: center;
+                }
+                
+                .form-group {
+                    margin-bottom: 15px;
+                }
+                
+                .form-group label {
+                    display: block;
+                    font-size: 16px;
+                    color:black;
+                }
+                
+                .form-group input {
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 16px;
+                    border: none;
+                    border-bottom: 1px solid #fff;
+                    background-color: transparent;
+                    color:black;
+                }
+                
+                .form-group input:focus {
+                    outline: none;
+                    border-bottom: 1px solid #fff; 
+                }
+    
+                .button {
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 16px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color:darksalmon;
+                    color:black;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease, color 0.3s ease;
+                }
+                
+                .button:hover {
+                    background-color:lightgreen;
+                    color: #fff; 
+                }
+
+                body{
+                    background-image:url('foodcalorimeter.png');
+                }
+                 
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        <form action='caloriretreive.php' method="post" class="food-form">
+
+            <h2 style="text-align:center; font-family:Verdana, Geneva, Tahoma, sans-serif;color:darkslategrey;">Calorimeter</h2><br><br>
+                
+                <div class="form-group">
+                <label for="userid">UserID:</label>
+                <input type="text" id="userid" name="userid">
+                <br><br>
+                </div>
+                
+                <div class="form-group">
+                <label for="food1">Name of the Food item 1:</label>
+                <input type='text' id='food1' name='food1' required>
+                <br><br>
+                </div>
+
+                <div class="form-group">
+                <label for="food2">Name of the Food item 2:</label>
+                <input type="text" id="food2" name="food2">
+                <br><br>
+                </div>
+
+                <input type="submit" value="FindCalories" class="button"><br>
+                <p id="bmi"> </p>
+        </div>
