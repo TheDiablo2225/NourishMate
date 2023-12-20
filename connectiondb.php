@@ -1,10 +1,10 @@
 <?php
 // Database connection parameters
-$host = 'localhost';
+$host = 'nourishmate.postgres.database.azure.com';
 $database = 'nourishmate';
-$port='5434';
-$user = 'postgres';
-$password = 'postgresql';
+$port='5432';
+$user = 'nourishmate';
+$password = 'Anna@2023';
 
 // Connect to PostgreSQL
 $conn = pg_connect("host=$host port=$port dbname=$database user=$user password=$password");
