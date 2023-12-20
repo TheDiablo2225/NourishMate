@@ -18,7 +18,7 @@ $result = pg_query_params($conn, $queryinsert, $params);
 if (!$result) {
     die("Insert query failed: " . pg_last_error());
 } else {
-    echo "Insertion successful";
+    header("homepage.php");
 }
 
 // Close the database connection
