@@ -1,12 +1,12 @@
- <?php
+<?php
 include('connectiondb.php');
 
-$uid = $_POST['userid'];
-$uname = $_POST['username'];
-$mailid = $_POST['email'];
-$pwd = $_POST['password'];
-$age = $_POST['age'];
-$gender = $_POST['gender'];
+$uid = (int)$_POST['userid']; // Assuming userid is an integer
+$uname = pg_escape_string($_POST['username']); // Escape the string
+$mailid = pg_escape_string($_POST['email']); // Escape the string
+$pwd = pg_escape_string($_POST['password']); // Escape the string
+$age = (int)$_POST['age']; // Assuming age is an integer
+$gender = pg_escape_string($_POST['gender']); // Escape the string
 
 // Update the value in table2
 $queryinsert = "INSERT INTO userlog (userid, username, email, pwd, age, gender) VALUES ($1, $2, $3, $4, $5, $6)";
