@@ -1,4 +1,4 @@
-<?php
+ <?php
 include('connectiondb.php');
 
 $uid = $_POST['userid'];
@@ -10,10 +10,6 @@ $gender = $_POST['gender'];
 
 // Update the value in table2
 $queryinsert = "INSERT INTO userlog (userid, username, email, pwd, age, gender) VALUES ($1, $2, $3, $4, $5, $6)";
-$params = array($uid, $uname, $mailid, $pwd, $age, $gender);
-
-// Add single quotes around placeholders for non-numeric types
-$queryinsert = "INSERT INTO userlog (userid, username, email, pwd, age, gender) VALUES ('$1', '$2', '$3', '$4', '$5', '$6')";
 $params = array($uid, $uname, $mailid, $pwd, $age, $gender);
 
 $result = pg_query_params($conn, $queryinsert, $params);
