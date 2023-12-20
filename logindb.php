@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Assuming you're storing passwords as plaintext in the database (not recommended)
         if (strcmp($password, $user['pwd']) == 0) {
             $_SESSION['user_id'] = $user['userid'];
-            echo "Logged in successfully";
             header("Location: watertracker1.php");
             //exit();
         } else {
